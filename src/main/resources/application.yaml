@@ -1,0 +1,30 @@
+server:
+  port: 8180
+  servlet:
+    context-path: /bus-service
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+    default-fetch-size: 1000
+    jdbc-type-for-null: 'Null'
+  mapper-locations: /com/kparlar/iett/repository/*.xml
+spring:
+  application:
+    name: bus-service
+  profiles:
+    active: local
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://postgres_container:5432/postgres
+    username: postgres
+    password: changeme
+    tomcat:
+      max-active: 5
+    jpa:
+      show-sql: true
+  logging:
+    level:
+      com:
+        kparlar:
+          iett: DEBUG
+
